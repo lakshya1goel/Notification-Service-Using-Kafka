@@ -5,7 +5,8 @@ import (
 	"encoding/json"
 	"log"
 
-	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/model"
+	services "github.com/lakshya1goel/Notification-Service-Using-Kafka.git/api/service"
+	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/domain/model"
 	"github.com/segmentio/kafka-go"
 )
 
@@ -14,10 +15,11 @@ type KafkaConsumer interface {
 }
 
 type kafkaConsumer struct {
-	reader     *kafka.Reader
+	reader *kafka.Reader
+	pushSender services.PushNotificationService
 }
 
-func NewKafkaConsumer(brokers []string, topic, groupID string) KafkaConsumer {
+func NewKafkaConsumer(brokers []string, topic, groupID string, pushSender services.PushNotificationService) KafkaConsumer {
 	return &kafkaConsumer{
 		reader: kafka.NewReader(kafka.ReaderConfig{
 			Brokers:  brokers,
@@ -26,6 +28,7 @@ func NewKafkaConsumer(brokers []string, topic, groupID string) KafkaConsumer {
 			MinBytes: 10e3,
 			MaxBytes: 10e6,
 		}),
+		pushSender: pushSender,
 	}
 }
 
