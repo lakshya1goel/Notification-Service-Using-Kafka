@@ -48,6 +48,10 @@ func (c *kafkaConsumer) Start(ctx context.Context) {
 			}
 
 			log.Println("Received notification:", notif)
+			err = c.pushSender.SendPushNotification(ctx, notif)
+			if err != nil {
+				log.Println("Push notification error:", err)
+			}
 		}
 	}()
 }
