@@ -3,10 +3,10 @@ package repository
 import (
 	"context"
 
-	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/domain/dto"
-	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/domain/model"
-	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/kafka"
 	"github.com/google/uuid"
+	"github.com/lakshya1goel/Notification-Service-Using-Kafka/domain/dto"
+	"github.com/lakshya1goel/Notification-Service-Using-Kafka/domain/model"
+	"github.com/lakshya1goel/Notification-Service-Using-Kafka/kafka"
 )
 
 type NotificationRepository interface {
@@ -25,9 +25,9 @@ func NewNotificationRepository() NotificationRepository {
 
 func (r *notificationRepository) PublishNotification(ctx context.Context, req dto.NotificationRequestDto) error {
 	notification := model.Notification{
-		ID:        uuid.New().String(),
-		Title:     req.Title,
-		Message:   req.Message,
+		ID:      uuid.New().String(),
+		Title:   req.Title,
+		Message: req.Message,
 	}
 	return r.producer.Produce(ctx, notification)
 }

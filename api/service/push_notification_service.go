@@ -4,8 +4,8 @@ import (
 	"context"
 
 	"firebase.google.com/go/v4/messaging"
-	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/api/util"
-	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/domain/model"
+	"github.com/lakshya1goel/Notification-Service-Using-Kafka/api/util"
+	"github.com/lakshya1goel/Notification-Service-Using-Kafka/domain/model"
 )
 
 type PushNotificationService interface {

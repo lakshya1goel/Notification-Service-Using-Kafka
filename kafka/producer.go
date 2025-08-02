@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"log"
 
-	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/domain/model"
+	"github.com/lakshya1goel/Notification-Service-Using-Kafka/domain/model"
 	"github.com/segmentio/kafka-go"
 )
 

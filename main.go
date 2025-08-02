@@ -5,11 +5,11 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/api/controller"
-	routes "github.com/lakshya1goel/Notification-Service-Using-Kafka.git/api/router"
-	services "github.com/lakshya1goel/Notification-Service-Using-Kafka.git/api/service"
-	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/api/util"
-	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/kafka"
+	"github.com/lakshya1goel/Notification-Service-Using-Kafka/api/controller"
+	routes "github.com/lakshya1goel/Notification-Service-Using-Kafka/api/router"
+	services "github.com/lakshya1goel/Notification-Service-Using-Kafka/api/service"
+	"github.com/lakshya1goel/Notification-Service-Using-Kafka/api/util"
+	"github.com/lakshya1goel/Notification-Service-Using-Kafka/kafka"
 )
 
 func main() {
@@ -25,12 +25,12 @@ func main() {
 		log.Fatalf("Push Sender init failed: %v", err)
 	}
 
-	consumer := kafka.NewKafkaConsumer(
-		[]string{"localhost:9092"},
-		"notifications",
-		"notification-consumer-group",
-		pushSender,
-	)
+	consumer := kafka.NewKafkaConsumer(kafka.KafkaConsumerConfig{
+		Brokers:    []string{"localhost:9092"},
+		Topic:      "notifications",
+		GroupID:    "notification-consumer-group",
+		PushSender: pushSender,
+	})
 	consumer.Start(ctx)
 
 	router := gin.Default()

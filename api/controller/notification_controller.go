@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/domain/dto"
-	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/usecase"
+	"github.com/lakshya1goel/Notification-Service-Using-Kafka/domain/dto"
+	"github.com/lakshya1goel/Notification-Service-Using-Kafka/usecase"
 )
 
 type NotificationController struct {

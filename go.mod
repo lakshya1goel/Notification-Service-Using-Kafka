@@ -1,4 +1,4 @@
-module github.com/lakshya1goel/Notification-Service-Using-Kafka.git
+module github.com/lakshya1goel/Notification-Service-Using-Kafka
 
 go 1.24.4
 

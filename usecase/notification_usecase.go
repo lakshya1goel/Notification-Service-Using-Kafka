@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/domain/dto"
-	"github.com/lakshya1goel/Notification-Service-Using-Kafka.git/repository"
+	"github.com/lakshya1goel/Notification-Service-Using-Kafka/domain/dto"
+	"github.com/lakshya1goel/Notification-Service-Using-Kafka/repository"
 )
 
 type NotificationUseCase interface {
