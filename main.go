@@ -22,7 +22,7 @@ func main() {
 
 	pushNotificationSender, err := services.NewPushNotificationService(ctx)
 	if err != nil {
-		log.Fatalf("Push Sender init failed: %v", err)
+		log.Fatalf("Push Notification Sender initialization failed: %v", err)
 	}
 
 	consumer := kafka.NewKafkaConsumer(kafka.KafkaConsumerConfig{
