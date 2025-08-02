@@ -20,16 +20,16 @@ func main() {
 		log.Fatalf("Firebase init failed: %v", err)
 	}
 
-	pushSender, err := services.NewPushNotificationService(ctx)
+	pushNotificationSender, err := services.NewPushNotificationService(ctx)
 	if err != nil {
 		log.Fatalf("Push Sender init failed: %v", err)
 	}
 
 	consumer := kafka.NewKafkaConsumer(kafka.KafkaConsumerConfig{
-		Brokers:    []string{"localhost:9092"},
-		Topic:      "notifications",
-		GroupID:    "notification-consumer-group",
-		PushSender: pushSender,
+		Brokers:    []string{"localhost:9092"},    //TODO: replace this with actual kafka brokers
+		Topic:      "notifications",               //TODO: replace this with actual kafka topic
+		GroupID:    "notification-consumer-group", //TODO: replace this with actual kafka group id
+		PushSender: pushNotificationSender,
 	})
 	consumer.Start(ctx)
 

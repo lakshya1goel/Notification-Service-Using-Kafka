@@ -19,7 +19,10 @@ type notificationRepository struct {
 
 func NewNotificationRepository() NotificationRepository {
 	return &notificationRepository{
-		producer: kafka.NewKafkaProducer("localhost:9092", "notifications"),
+		producer: kafka.NewKafkaProducer(kafka.KafkaProducerConfig{
+			Broker: "localhost:9092", //TODO: replace this with actual kafka broker
+			Topic:  "notifications",  //TODO: replace this with actual kafka topic
+		}),
 	}
 }
 

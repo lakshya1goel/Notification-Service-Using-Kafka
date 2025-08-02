@@ -10,7 +10,7 @@ import (
 var FirebaseApp *firebase.App
 
 func InitFirebase(ctx context.Context) error {
-	opt := option.WithCredentialsFile("path/to/your/firebase-credentials.json")
+	opt := option.WithCredentialsFile("path/to/your/firebase-credentials.json") //TODO: replace this with actual firebase credentials
 	app, err := firebase.NewApp(ctx, nil, opt)
 	if err != nil {
 		return err

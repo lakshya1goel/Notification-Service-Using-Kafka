@@ -25,7 +25,7 @@ func NewPushNotificationService(ctx context.Context) (PushNotificationService, e
 }
 
 func (p *pushNotificationService) SendPushNotification(ctx context.Context, notif model.Notification) error {
-	fcmToken := "fcmToken"
+	fcmToken := "fcmToken" //TODO: replace this with actual fcm token
 	message := &messaging.Message{
 		Notification: &messaging.Notification{
 			Title: notif.Title,
