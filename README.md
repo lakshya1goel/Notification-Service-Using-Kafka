@@ -95,7 +95,7 @@ The service will start on `http://localhost:8000`
 
 ### Verify Setup
 
-**Check Kafka**: Visit `http://localhost:8080` for Kafka UI
+**Check Kafka**: Visit `http://localhost:8091` for Kafka UI
 
 ## 📡 API Endpoints
 
@@ -126,12 +126,12 @@ Send a push notification to users.
 #### Example Usage
 
 ```bash
-curl -X POST http://localhost:8000/api/notification \
-  -H "Content-Type: application/json" \
-  -d '{
+curl --location 'http://localhost:8000/api/notification' \
+--header 'Content-Type: application/json' \
+--data '{
     "title": "Welcome!",
     "message": "Thank you for using our service"
-  }'
+}'
 ```
 
 ## 🔄 Message Flow
